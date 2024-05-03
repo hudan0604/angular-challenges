@@ -2,3 +2,37 @@
 @tailwind components;
 @tailwind utilities;
 
+@keyframes collapse-in {
+  to {
+    height: 5rem;
+  }
+  from {
+    height: 0;
+  }
+}
+
+@keyframes collapse-out {
+  from {
+    height: 5rem;
+  }
+  to {
+    height: 0;
+  }
+}
+
+::view-transition-old(imgBckg),
+::view-transition-old(imgProfile),
+::view-transition-old(imgAngular),
+::view-transition-new(imgBckg),
+::view-transition-new(imgProfile),
+::view-transition-new(imgAngular) {
+  animation-duration: 800ms;
+}
+
+::view-transition-old(header) {
+  animation: collapse-in 590ms both alternate-reverse linear;
+}
+
+::view-transition-new(header) {
+  animation: collapse-out 590ms both alternate-reverse linear;
+}
